@@ -2912,8 +2912,6 @@ textAngular.directive('textAngularToolbar', [
 					toolElement.attr('tabindex', '-1');
 					toolElement.attr('ng-click', 'executeAction()');
 					toolElement.attr('ng-class', 'displayActiveToolClass(active)');
-					//add aria-label for accessibility
-					toolElement.attr('aria-label', toolDefinition.tooltiptext);
 
 					if (toolDefinition && toolDefinition.tooltiptext) {
 						toolElement.attr('title', toolDefinition.tooltiptext);
@@ -2929,11 +2927,6 @@ textAngular.directive('textAngularToolbar', [
 							icon.addClass(toolDefinition.iconclass);
 							toolElement[0].innerHTML = '';
 							toolElement.append(icon);
-							//add hidden button value for accessibility
-							var hiddenValue = angular.element('<span>');
-							hiddenValue.addClass('hidden-lg hidden-md hidden-sm hidden-xs');
-							hiddenValue[0].innerHTML = toolDefinition.tooltiptext;
-							toolElement.append(hiddenValue);
 							if(content && content !== '') toolElement.append('&nbsp;' + content);
 						}
 					}
